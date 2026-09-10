@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "artikel"
+    label: "Artikel"
+    folder: "artikel"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul", name: "judul", widget: "string" }
+      - { label: "Ringkasan", name: "ringkasan", widget: "text" }
+      - { label: "Kategori", name: "kategori", widget: "select", options: ["HR & Career", "Perspectives", "Journal"] }
+      - { label: "Tanggal", name: "tanggal", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Isi", name: "body", widget: "markdown" }
