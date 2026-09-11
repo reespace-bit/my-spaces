@@ -418,3 +418,63 @@ body.theme-sage {
   border: 2px solid var(--line);
   flex-shrink: 0;
 }
+/* ===== WELCOME HERO ===== */
+.hero-welcome {
+  padding: 80px 0 70px;
+  align-items: start;
+}
+
+.hero-welcome .hero-text p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 620px;
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+.hero-welcome .hero-text p strong {
+  color: var(--rose);
+  font-weight: 700;
+}
+
+.hero-welcome .hero-text h1 {
+  margin-bottom: 24px;
+}
+
+.hero-welcome .hero-text h1 em {
+  font-style: normal;
+  font-size: 0.85em;
+}
+
+.hero-quote {
+  font-style: italic;
+  border-left: 3px solid var(--rose);
+  padding-left: 18px;
+  color: var(--ink) !important;
+  font-size: 15px !important;
+  opacity: 0.85;
+}
+
+/* ===== ABOUT PAGE ===== */
+.about p strong {
+  color: var(--rose);
+  font-weight: 700;
+}
+
+.about p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 800px) {
+  .hero-welcome {
+    padding: 50px 0;
+  }
+  .hero-welcome .hero-text p {
+    font-size: 15px;
+  }
+  .about p {
+    font-size: 15px;
+  }
+}
