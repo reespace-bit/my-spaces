@@ -1,10 +1,6 @@
 ---
 judul: Apa yang Sebenarnya HR Lihat Saat Interview?
-ringkasan: >
-  Interview bukan tentang jawaban benar. Ini tentang apakah kamu benar-benar
-  hadir sebagai dirimu sendiri, atau hanya mengulang script yang kamu pelajari.
-  Guide bisa membantumu mempersiapkan diri, tapi keaslian, kejujuran, dan cara
-  berpikirmulah yang akhirnya berbicara.
+ringkasan: Interview bukan tentang jawaban benar. Ini tentang apakah kamu hadir sebagai dirimu sendiri.
 kategori: HR & Career
 tanggal: 2026-09-11
 ---
