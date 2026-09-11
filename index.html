@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semua Artikel — My Spaces</title>
+  <title>My Spaces — Ree</title>
+  <meta name="description" content="Ruang personal Ree untuk berbagi perspektif, cerita, dan jurnal.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,23 +17,40 @@
         <a href="about.html">About</a>
         <a href="kontak.html">Kontak</a>
         <div class="theme-picker">
-  <button class="theme-picker-btn" id="theme-picker-btn" aria-label="Pilih tema">🎨</button>
-  <div class="theme-menu" id="theme-menu"></div>
-</div>
-<button class="theme-btn" aria-label="Toggle dark mode">🌙</button>
+          <button class="theme-picker-btn" id="theme-picker-btn" aria-label="Pilih tema">🎨</button>
+          <div class="theme-menu" id="theme-menu"></div>
+        </div>
+        <button class="theme-btn" aria-label="Toggle dark mode">🌙</button>
       </div>
     </nav>
+
+    <header class="hero hero-welcome">
+      <div class="hero-text">
+        <div class="kicker">a little corner of the internet</div>
+        <h1>Hi, you! <em>🌸</em></h1>
+        <p>Welcome to <strong>My Spaces</strong> — a little corner of the internet that I made to keep pieces of my thoughts, stories, and things I'm learning along the way.</p>
+        <p>Di sini kamu mungkin akan menemukan sedikit tentang <strong>HR & career</strong>, <strong>personal journal</strong>, <strong>random thoughts</strong>, <strong>perspectives</strong>, <strong>stories</strong>, atau hal-hal kecil yang tiba-tiba membuatku berpikir.</p>
+        <p class="hero-quote">There's no particular theme here. Sometimes serious, sometimes random, sometimes personal.</p>
+        <p>Basically, just a little space where I can write whatever feels worth putting into words.</p>
+        <p>So, welcome to <strong>My Spaces</strong>. Make yourself comfortable, look around, and stay as long as you like. 🌷</p>
+        <a href="artikel.html" class="btn">Baca tulisanku →</a>
+      </div>
+      <div class="stamp">
+        <div class="jp">私の場所</div>
+        <h3>My little space</h3>
+        <p>仕事 · thoughts · stories · life</p>
+      </div>
+    </header>
 
     <section>
       <div class="section-head">
         <div>
-          <div class="kicker">all notes</div>
-          <h2>Semua tulisan.</h2>
+          <div class="kicker">latest notes</div>
+          <h2>What I've been writing.</h2>
         </div>
+        <a href="artikel.html" style="color:var(--rose);font-weight:700">Lihat semua →</a>
       </div>
-
-      <div class="filters" id="filter-box"></div>
-      <div class="grid-3" id="all-articles"></div>
+      <div class="grid-3" id="home-articles"></div>
     </section>
 
     <footer>
