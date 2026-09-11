@@ -1,14 +1,36 @@
-// ===== 1. DARK MODE =====
+// ===== 1. TEMA =====
+const THEMES = [
+  { id: "default",  label: "🌸 Pink Classic",  color: "#9e4968" },
+  { id: "anime",    label: "🎀 Anime Pink",    color: "#ff69b4" },
+  { id: "sakura",   label: "🌸 Sakura",        color: "#d881b5" },
+  { id: "ocean",    label: "🌊 Ocean",         color: "#00b4d8" },
+  { id: "dragon",   label: "🐉 Dragon",        color: "#e63946" },
+  { id: "night",    label: "🌙 Night",         color: "#b47dff" },
+  { id: "lavender", label: "💜 Lavender",      color: "#7e57c2" },
+  { id: "sage",     label: "🌿 Sage",          color: "#4a7c59" },
+];
+
 function initTheme() {
-  const saved = localStorage.getItem("theme");
-  if (saved === "dark") document.body.classList.add("dark");
+  const saved = localStorage.getItem("colorTheme") || "default";
+  applyTheme(saved);
+
+  const savedDark = localStorage.getItem("darkMode");
+  if (savedDark === "true") document.body.classList.add("dark");
   updateThemeIcon();
 }
 
-function toggleTheme() {
+function applyTheme(themeId) {
+  document.body.classList.forEach((cls) => {
+    if (cls.startsWith("theme-")) document.body.classList.remove(cls);
+  });
+  if (themeId !== "default") document.body.classList.add("theme-" + themeId);
+  localStorage.setItem("colorTheme", themeId);
+}
+
+function toggleDarkMode() {
   document.body.classList.toggle("dark");
   const isDark = document.body.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  localStorage.setItem("darkMode", isDark);
   updateThemeIcon();
 }
 
@@ -18,7 +40,7 @@ function updateThemeIcon() {
   btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
 
-// ===== 2. PARSE FRONTMATTER MARKDOWN =====
+// ===== 2. PARSE FRONTMATTER =====
 function parseFrontmatter(markdown) {
   const lines = markdown.split("\n");
   const data = {};
@@ -28,12 +50,8 @@ function parseFrontmatter(markdown) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.trim() === "---") {
-      if (!inFrontmatter) {
-        inFrontmatter = true;
-      } else {
-        contentStart = i + 1;
-        break;
-      }
+      if (!inFrontmatter) inFrontmatter = true;
+      else { contentStart = i + 1; break; }
     } else if (inFrontmatter) {
       const idx = line.indexOf(":");
       if (idx > -1) {
@@ -45,13 +63,10 @@ function parseFrontmatter(markdown) {
     }
   }
 
-  return {
-    ...data,
-    isi: lines.slice(contentStart).join("\n").trim(),
-  };
+  return { ...data, isi: lines.slice(contentStart).join("\n").trim() };
 }
 
-// ===== 3. LOAD SEMUA ARTIKEL =====
+// ===== 3. LOAD ARTIKEL =====
 async function loadArticles() {
   try {
     const listRes = await fetch("artikel/index.json");
@@ -72,19 +87,17 @@ async function loadArticles() {
           tanggal: parsed.tanggal || "2026-01-01",
           isi: parsed.isi || "",
         });
-      } catch (err) {
-        console.warn("Gagal baca file:", filename, err);
-      }
+      } catch (err) { console.warn("Gagal baca:", filename, err); }
     }
 
     return articles.sort((a, b) => new Date(b.tanggal) - new Date(a.tanggal));
   } catch (err) {
-    console.warn("Gagal load artikel/index.json:", err);
+    console.warn("Gagal load index.json:", err);
     return [];
   }
 }
 
-// ===== 4. TAMPILKAN ARTIKEL DI HOME =====
+// ===== 4. HOME ARTIKEL =====
 async function renderHomeArticles() {
   const container = document.getElementById("home-articles");
   if (!container) return;
@@ -92,15 +105,13 @@ async function renderHomeArticles() {
   const latest = articles.slice(0, 3);
 
   if (latest.length === 0) {
-    container.innerHTML =
-      '<p style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--muted)">Belum ada artikel.</p>';
+    container.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--muted)">Belum ada artikel.</p>';
     return;
   }
-
   container.innerHTML = latest.map(cardHTML).join("");
 }
 
-// ===== 5. TAMPILKAN SEMUA ARTIKEL + FILTER =====
+// ===== 5. SEMUA ARTIKEL =====
 let allArticles = [];
 
 async function renderAllArticles() {
@@ -115,14 +126,12 @@ function renderFiltered(kategori) {
   const container = document.getElementById("all-articles");
   if (!container) return;
 
-  const list =
-    kategori === "Semua"
-      ? allArticles
-      : allArticles.filter((a) => a.kategori === kategori);
+  const list = kategori === "Semua"
+    ? allArticles
+    : allArticles.filter((a) => a.kategori === kategori);
 
   if (list.length === 0) {
-    container.innerHTML =
-      '<p style="text-align:center;padding:60px 0;color:var(--muted)">Belum ada tulisan di kategori ini.</p>';
+    container.innerHTML = '<p style="text-align:center;padding:60px 0;color:var(--muted)">Belum ada tulisan di kategori ini.</p>';
     return;
   }
   container.innerHTML = list.map(cardHTML).join("");
@@ -133,13 +142,9 @@ function renderFilterButtons() {
   if (!box) return;
 
   const kategori = ["Semua", ...new Set(allArticles.map((a) => a.kategori))];
-
-  box.innerHTML = kategori
-    .map(
-      (k, i) =>
-        `<button class="${i === 0 ? "active" : ""}" data-kat="${k}">${k}</button>`
-    )
-    .join("");
+  box.innerHTML = kategori.map((k, i) =>
+    `<button class="${i === 0 ? "active" : ""}" data-kat="${k}">${k}</button>`
+  ).join("");
 
   box.querySelectorAll("button").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -150,7 +155,7 @@ function renderFilterButtons() {
   });
 }
 
-// ===== 6. HTML KARTU ARTIKEL =====
+// ===== 6. KARTU =====
 function cardHTML(a) {
   return `
     <a class="card" href="baca.html?slug=${a.slug}">
@@ -164,7 +169,7 @@ function cardHTML(a) {
   `;
 }
 
-// ===== 7. HALAMAN BACA ARTIKEL =====
+// ===== 7. HALAMAN BACA =====
 async function renderArticleDetail() {
   const container = document.getElementById("article-detail");
   if (!container) return;
@@ -179,12 +184,14 @@ async function renderArticleDetail() {
   }
 
   const tanggal = new Date(article.tanggal).toLocaleDateString("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
+    day: "numeric", month: "long", year: "numeric",
   });
 
   document.title = article.judul + " — My Spaces";
+
+  const isiHTML = typeof marked !== "undefined"
+    ? marked.parse(article.isi)
+    : article.isi;
 
   container.innerHTML = `
     <a class="back" href="artikel.html">← Kembali ke semua artikel</a>
@@ -193,7 +200,7 @@ async function renderArticleDetail() {
       <h1>${article.judul}</h1>
       <div class="meta">${tanggal}</div>
     </div>
-        <div class="article-content">${marked.parse(article.isi)}</div>
+    <div class="article-content">${isiHTML}</div>
   `;
 }
 
@@ -201,22 +208,51 @@ async function renderArticleDetail() {
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const msg = document.getElementById("success-msg");
     if (msg) msg.style.display = "block";
     form.reset();
-    setTimeout(() => {
-      if (msg) msg.style.display = "none";
-    }, 5000);
+    setTimeout(() => { if (msg) msg.style.display = "none"; }, 5000);
   });
 }
 
-// ===== JALANKAN SEMUA =====
+// ===== 9. TOMBOL TEMA =====
+function initThemePicker() {
+  const btn = document.getElementById("theme-picker-btn");
+  const menu = document.getElementById("theme-menu");
+  if (!btn || !menu) return;
+
+  menu.innerHTML = `
+    <div class="theme-menu-title">Pilih Tema</div>
+    ${THEMES.map(t => `
+      <button class="theme-option" data-theme="${t.id}">
+        <span class="theme-swatch" style="background:${t.color}"></span>
+        ${t.label}
+      </button>
+    `).join("")}
+  `;
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
+  });
+
+  document.addEventListener("click", () => menu.classList.remove("show"));
+
+  menu.querySelectorAll(".theme-option").forEach((opt) => {
+    opt.addEventListener("click", () => {
+      applyTheme(opt.dataset.theme);
+      menu.classList.remove("show");
+    });
+  });
+}
+
+// ===== JALANKAN =====
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
-  document.querySelector(".theme-btn")?.addEventListener("click", toggleTheme);
+  initThemePicker();
+  document.querySelector(".theme-btn")?.addEventListener("click", toggleDarkMode);
   renderHomeArticles();
   renderAllArticles();
   renderArticleDetail();
