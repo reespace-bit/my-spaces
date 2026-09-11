@@ -193,7 +193,7 @@ async function renderArticleDetail() {
       <h1>${article.judul}</h1>
       <div class="meta">${tanggal}</div>
     </div>
-    <div class="article-content">${article.isi}</div>
+        <div class="article-content">${marked.parse(article.isi)}</div>
   `;
 }
 
