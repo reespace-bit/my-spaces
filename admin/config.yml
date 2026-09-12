@@ -4,6 +4,10 @@ backend:
   branch: main
   site_domain: reespace-bit.github.io
 
+media_folder: "images"
+media_library:
+  name: "images"
+
 collections:
   - name: artikel
     label: Artikel
