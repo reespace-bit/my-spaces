@@ -1,4 +1,4 @@
-  backend:
+backend:
   name: github
   repo: reespace-bit/my-spaces
   branch: main
