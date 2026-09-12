@@ -14,7 +14,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Judul", name: "judul", widget: "string" }
-      - { label: "Ringkasan", name: "ringkasan", widget: "text" }
+      - { label: "Ringkasan", name: "ringkasan", widget: "string" }
       - { label: "Kategori", name: "kategori", widget: "select", options: ["HR & Career", "Perspectives", "Journal"] }
       - { label: "Tanggal", name: "tanggal", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Isi", name: "body", widget: "markdown" }
