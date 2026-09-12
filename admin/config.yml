@@ -1,7 +1,8 @@
-backend:
+  backend:
   name: github
   repo: reespace-bit/my-spaces
   branch: main
+  site_domain: reespace-bit.github.io
 
 media_folder: "images"
 public_folder: "/images"
