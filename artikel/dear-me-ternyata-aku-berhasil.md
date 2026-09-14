@@ -2,6 +2,7 @@
 judul: Dear Me, Ternyata Aku Berhasil
 ringkasan: Catatan kecil tentang kuliah, kegagalan menjadi lulusan tercepat, dan
   sebuah doa yang ternyata masih Tuhan simpan.
+cover: /my-spaces/images/chatgpt-image-sep-13-2026-02_14_18-pm.png
 kategori: Perspectives
 tanggal: 2026-09-13
 ---
