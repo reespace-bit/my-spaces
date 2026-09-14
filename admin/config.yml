@@ -6,6 +6,10 @@ backend:
 
 media_folder: "images"
 public_folder: "/my-spaces/images"
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey
 
 collections:
   - name: artikel
