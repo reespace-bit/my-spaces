@@ -173,7 +173,58 @@ function cardHTML(a) {
   `;
 }
 
-// ===== 7. HALAMAN BACA =====
+// ===== 7. TOMBOL SHARE =====
+function shareHTML(article) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(article.judul);
+
+  return `
+    <div class="share-section">
+      <div class="share-title">Bagikan artikel ini</div>
+      <div class="share-buttons">
+        <a class="share-btn whatsapp" 
+           href="https://wa.me/?text=${title}%20${url}" 
+           target="_blank" rel="noopener" aria-label="Share ke WhatsApp">
+          📱 WhatsApp
+        </a>
+        <a class="share-btn twitter" 
+           href="https://twitter.com/intent/tweet?text=${title}&url=${url}" 
+           target="_blank" rel="noopener" aria-label="Share ke Twitter">
+          🐦 Twitter
+        </a>
+        <a class="share-btn facebook" 
+           href="https://www.facebook.com/sharer/sharer.php?u=${url}" 
+           target="_blank" rel="noopener" aria-label="Share ke Facebook">
+          📘 Facebook
+        </a>
+        <a class="share-btn linkedin" 
+           href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" 
+           target="_blank" rel="noopener" aria-label="Share ke LinkedIn">
+          💼 LinkedIn
+        </a>
+        <button class="share-btn copy" onclick="copyLink(this)" aria-label="Copy link">
+          📋 Copy Link
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function copyLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const original = btn.textContent;
+    btn.textContent = "✅ Tersalin!";
+    btn.classList.add("copied");
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove("copied");
+    }, 2000);
+  }).catch(() => {
+    alert("Gagal copy link. Coba manual ya.");
+  });
+}
+
+// ===== 8. HALAMAN BACA =====
 async function renderArticleDetail() {
   const container = document.getElementById("article-detail");
   if (!container) return;
@@ -210,10 +261,11 @@ async function renderArticleDetail() {
     </div>
     ${coverHTML}
     <div class="article-content">${isiHTML}</div>
+    ${shareHTML(article)}
   `;
 }
 
-// ===== 8. FORM KONTAK =====
+// ===== 9. FORM KONTAK =====
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -226,7 +278,7 @@ function initContactForm() {
   });
 }
 
-// ===== 9. TOMBOL TEMA =====
+// ===== 10. TOMBOL TEMA =====
 function initThemePicker() {
   const btn = document.getElementById("theme-picker-btn");
   const menu = document.getElementById("theme-menu");
