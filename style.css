@@ -538,3 +538,16 @@ body.theme-sage {
     font-size: 15px;
   }
 }
+/* ===== GAMBAR COVER ===== */
+.card-cover {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.article-page img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
