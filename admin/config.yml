@@ -5,6 +5,7 @@ backend:
   site_domain: reespace-bit.github.io
 
 media_folder: "images"
+public_folder: "/my-spaces/images"
 
 collections:
   - name: artikel
@@ -15,6 +16,7 @@ collections:
     fields:
       - {label: "Judul", name: "judul", widget: "string"}
       - {label: "Ringkasan", name: "ringkasan", widget: "string"}
+      - {label: "Gambar Cover", name: "cover", widget: "image", required: false}
       - {label: "Kategori", name: "kategori", widget: "select", options: ["HR & Career", "Perspectives", "Journal", "Story"]}
       - {label: "Tanggal", name: "tanggal", widget: "datetime", format: "YYYY-MM-DD"}
       - {label: "Isi", name: "body", widget: "markdown"}
