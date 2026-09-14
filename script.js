@@ -13,7 +13,6 @@ const THEMES = [
 function initTheme() {
   const saved = localStorage.getItem("colorTheme") || "default";
   applyTheme(saved);
-
   const savedDark = localStorage.getItem("darkMode");
   if (savedDark === "true") document.body.classList.add("dark");
   updateThemeIcon();
@@ -83,6 +82,7 @@ async function loadArticles() {
           slug: filename.replace(".md", ""),
           judul: parsed.judul || "Tanpa Judul",
           ringkasan: parsed.ringkasan || "",
+          cover: parsed.cover || "",
           kategori: parsed.kategori || "Journal",
           tanggal: parsed.tanggal || "2026-01-01",
           isi: parsed.isi || "",
@@ -157,9 +157,13 @@ function renderFilterButtons() {
 
 // ===== 6. KARTU =====
 function cardHTML(a) {
+  const coverHTML = a.cover
+    ? `<div class="card-cover" style="background-image:url('${a.cover}');background-size:cover;background-position:center;"></div>`
+    : `<div class="card-top">${a.kategori.toUpperCase()}</div>`;
+
   return `
     <a class="card" href="baca.html?slug=${a.slug}">
-      <div class="card-top">${a.kategori.toUpperCase()}</div>
+      ${coverHTML}
       <div class="card-body">
         <h3>${a.judul}</h3>
         <p>${a.ringkasan}</p>
@@ -193,6 +197,10 @@ async function renderArticleDetail() {
     ? marked.parse(article.isi)
     : article.isi;
 
+  const coverHTML = article.cover
+    ? `<img src="${article.cover}" alt="${article.judul}" style="width:100%;border-radius:20px;margin-bottom:30px" />`
+    : "";
+
   container.innerHTML = `
     <a class="back" href="artikel.html">← Kembali ke semua artikel</a>
     <div style="margin-top:24px">
@@ -200,6 +208,7 @@ async function renderArticleDetail() {
       <h1>${article.judul}</h1>
       <div class="meta">${tanggal}</div>
     </div>
+    ${coverHTML}
     <div class="article-content">${isiHTML}</div>
   `;
 }
