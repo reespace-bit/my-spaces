@@ -2,6 +2,7 @@
 judul: Segenggam Beras untuk Bahlid
 ringkasan: Sebuah cerita tentang anak yang kehilangan segalanya, tapi tidak
   kehilangan kemanusiaannya.
+cover: https://1s4oyld5dc.ucarecd.net/7a138437-42df-4624-bb52-70590803bb46/
 kategori: Story
 tanggal: 2026-09-14
 ---
@@ -13,7 +14,7 @@ tanggal: 2026-09-14
 
 \---
 
-Bahlid belum lahir ketika hidupnya mulai kehilangan banyak hal. Saat itu, ia masih berupa denyut kecil di dalam rahim ibunya.
+Bahlid belum lahir namun banyak tantangan yang harus dia hadapi.
 
 Wanda sedang mengandung anak pertamanya ketika bencana datang ke kampung tempat keluarganya tinggal. Dalam waktu yang tidak terlalu lama, rumah-rumah runtuh, jalan berubah jadi lumpur, dan banyak nama tiba-tiba berpindah ke daftar orang yang tidak lagi ditemukan.
 
@@ -28,8 +29,6 @@ Dan seorang bayi yang belum pernah melihat dunia.
 Bahlid.
 
 \---
-
-Busro adalah satu-satunya orang yang masih dimiliki Wanda. Mereka menikah tidak lama setelah itu.
 
 Busro bukan orang kaya. Ia bekerja sebagai pengepul rongsokan, membeli barang bekas dari orang-orang, memilahnya, lalu menjualnya kembali ke pengepul yang lebih besar. Pekerjaan yang tidak pernah terlihat menjanjikan. Tapi cukup.
 
@@ -211,11 +210,7 @@ Tetap tidak ada.
 
 Untuk beberapa saat, Bahlid cuma duduk di samping tubuh ayahnya. Ia tidak menangis. Mungkin karena terlalu lelah. Mungkin karena sejak kecil ia sudah terlalu sering kehilangan. Ia cuma duduk di situ. Memegang tangan ayahnya yang sudah dingin. Menunggu sesuatu yang tidak akan datang.
 
-
-
 \---
-
-
 
 Setelah Busro meninggal, cuma ada Bahlid dan Wati. 
 
@@ -244,8 +239,6 @@ Mereka sedang kaya.
 Setidaknya malam itu.
 
 \---
-
-
 
 Tapi hidup rupanya belum selesai mengambil. Wati mulai sering sakit. Awalnya cuma demam. Lalu batuk. Kemudian tubuhnya semakin lemah. Bahlid membawanya mencari pertolongan. Ia bertanya ke sana kemari. Mencari tempat yang bisa menerima mereka. Mencari biaya. Mencari orang yang bisa membantu.
 
@@ -307,8 +300,6 @@ Karena memang ia masih anak kecil.
 
 \---
 
-
-
 Setelah Wati meninggal, tidak ada lagi yang menunggunya pulang. Tidak ada ayah. Tidak ada ibu. Tidak ada adik. Tidak ada rumah yang benar-benar bisa ia sebut rumah. Bahlid tetap bekerja. Usianya bertambah. Tubuhnya tumbuh. Tapi hidupnya tidak banyak berubah. Ia tetap tinggal di tempat-tempat yang bisa memberinya ruang untuk tidur. Kadang di sudut gudang. Kadang di dekat pasar. Kadang di bawah atap toko yang sudah tutup. Ia tidak punya ijazah. Tidak punya pekerjaan tetap. Tidak punya tabungan. Dan tidak punya siapa-siapa untuk ditanya ketika hidup kembali menjadi sulit.
 
 Sesekali ia mendengar tentang pelatihan. Tentang program bantuan. Tentang pekerjaan. Tentang kesempatan untuk memperbaiki hidup. Bahlid cuma tersenyum kecil. Bukan karena ia tidak percaya. Ia cuma sudah terlalu sering melihat kesempatan dari kejauhan. Dekat sekali untuk terlihat. Tapi terlalu jauh untuk disentuh.
@@ -337,11 +328,7 @@ Sari tidak bertanya lagi. Ia cuma mengangguk. Matanya berkaca.
 
 Bahlid pamit. Ia berjalan pergi. Belum pernah menulis satu huruf pun di buku itu. Karena ia takut salah. Karena ia takut menghabiskan halaman terakhir. Karena buku itu satu-satunya benda yang membuatnya merasa pernah jadi anak-anak.
 
-
-
 \---
-
-
 
 Suatu malam, bertahun-tahun kemudian, Bahlid sedang bekerja di pasar. Hujan baru saja turun. Orang-orang bergegas pulang. Di dekat sebuah toko, ia melihat seorang anak laki-laki kecil. Mungkin tujuh atau delapan tahun. Anak itu berdiri di depan rak roti. Tangannya mengambil satu bungkus. Ia memasukkannya ke dalam baju. Lalu berbalik. Belum sempat berjalan jauh, pemilik toko melihatnya.
 
