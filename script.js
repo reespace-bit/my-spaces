@@ -206,6 +206,17 @@ function shareHTML(article) {
           📋 Copy Link
         </button>
       </div>
+
+      <div class="like-section">
+        <form class="iine-form" action="https://iine.osc.garden/api/v1/vote" method="post">
+          <input type="hidden" name="url" value="${window.location.href}">
+          <button type="submit" class="iine-button">
+            ❤️ Suka artikel ini
+          </button>
+        </form>
+      </div>
+
+      <div class="views-counter" id="views-counter"></div>
     </div>
   `;
 }
@@ -261,12 +272,35 @@ async function renderArticleDetail() {
     </div>
     ${coverHTML}
     <div class="article-content">${isiHTML}</div>
-    <div class="views-counter" id="views-counter" data-path="${window.location.pathname}"></div>
     ${shareHTML(article)}
   `;
+
+  // Init view counter setelah render
+  setTimeout(initViewCounter, 800);
 }
 
-// ===== 9. FORM KONTAK =====
+// ===== 9. VIEW COUNTER (GoatCounter) =====
+function initViewCounter() {
+  const el = document.getElementById("views-counter");
+  if (!el) return;
+
+  var t = setInterval(function() {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(t);
+      window.goatcounter.visit_count({
+        append: '#views-counter',
+        type: 'html',
+        no_branding: true,
+        style: 'div { border: none; background: transparent; font-size: 13px; color: var(--muted); text-align: center; } #gcvc-views { font-weight: 700; color: var(--rose); font-size: 15px; }'
+      });
+    }
+  }, 200);
+
+  // Timeout setelah 5 detik kalau goatcounter belum ready
+  setTimeout(() => clearInterval(t), 5000);
+}
+
+// ===== 10. FORM KONTAK =====
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -279,7 +313,7 @@ function initContactForm() {
   });
 }
 
-// ===== 10. TOMBOL TEMA =====
+// ===== 11. TOMBOL TEMA =====
 function initThemePicker() {
   const btn = document.getElementById("theme-picker-btn");
   const menu = document.getElementById("theme-menu");
@@ -319,41 +353,4 @@ document.addEventListener("DOMContentLoaded", () => {
   renderAllArticles();
   renderArticleDetail();
   initContactForm();
-});
-// ===== VIEW COUNTER (GoatCounter) =====
-function initViewCounter() {
-  const el = document.getElementById("views-counter");
-  if (!el) return;
-
-  // Tunggu sampai goatcounter siap
-  var t = setInterval(function() {
-    if (window.goatcounter && window.goatcounter.visit_count) {
-      clearInterval(t);
-      window.goatcounter.visit_count({
-        append: '#views-counter',
-        type: 'html',
-        no_branding: true,
-        style: `
-          div { 
-            border: none; 
-            background: transparent; 
-            font-size: 13px; 
-            color: var(--muted); 
-            text-align: center;
-            padding: 0;
-          }
-          #gcvc-views { 
-            font-weight: 700; 
-            color: var(--rose); 
-            font-size: 15px;
-          }
-        `
-      });
-    }
-  }, 100);
-}
-
-// Panggil di DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(initViewCounter, 500);
 });
