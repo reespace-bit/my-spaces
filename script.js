@@ -320,22 +320,37 @@ document.addEventListener("DOMContentLoaded", () => {
   renderArticleDetail();
   initContactForm();
 });
-// ===== VIEW COUNTER =====
+// ===== VIEW COUNTER (GoatCounter) =====
 function initViewCounter() {
   const el = document.getElementById("views-counter");
   if (!el) return;
-  if (typeof goatcounter === "undefined") return;
 
-  const path = el.dataset.path;
-
-  fetch(`https://myspaces.goatcounter.com/counter/${encodeURIComponent(path)}.json`)
-    .then(res => res.json())
-    .then(data => {
-      el.innerHTML = `<span class="views-count">👁️ ${data.count} kali dibaca</span>`;
-    })
-    .catch(() => {
-      el.innerHTML = "";
-    });
+  // Tunggu sampai goatcounter siap
+  var t = setInterval(function() {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(t);
+      window.goatcounter.visit_count({
+        append: '#views-counter',
+        type: 'html',
+        no_branding: true,
+        style: `
+          div { 
+            border: none; 
+            background: transparent; 
+            font-size: 13px; 
+            color: var(--muted); 
+            text-align: center;
+            padding: 0;
+          }
+          #gcvc-views { 
+            font-weight: 700; 
+            color: var(--rose); 
+            font-size: 15px;
+          }
+        `
+      });
+    }
+  }, 100);
 }
 
 // Panggil di DOMContentLoaded
