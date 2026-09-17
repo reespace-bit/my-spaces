@@ -261,6 +261,7 @@ async function renderArticleDetail() {
     </div>
     ${coverHTML}
     <div class="article-content">${isiHTML}</div>
+    <div class="views-counter" id="views-counter" data-path="${window.location.pathname}"></div>
     ${shareHTML(article)}
   `;
 }
@@ -318,4 +319,26 @@ document.addEventListener("DOMContentLoaded", () => {
   renderAllArticles();
   renderArticleDetail();
   initContactForm();
+});
+// ===== VIEW COUNTER =====
+function initViewCounter() {
+  const el = document.getElementById("views-counter");
+  if (!el) return;
+  if (typeof goatcounter === "undefined") return;
+
+  const path = el.dataset.path;
+
+  fetch(`https://myspaces.goatcounter.com/counter/${encodeURIComponent(path)}.json`)
+    .then(res => res.json())
+    .then(data => {
+      el.innerHTML = `<span class="views-count">👁️ ${data.count} kali dibaca</span>`;
+    })
+    .catch(() => {
+      el.innerHTML = "";
+    });
+}
+
+// Panggil di DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initViewCounter, 500);
 });
