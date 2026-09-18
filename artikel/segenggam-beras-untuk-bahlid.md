@@ -2,7 +2,7 @@
 judul: Segenggam Beras untuk Bahlid
 ringkasan: Sebuah cerita tentang anak yang kehilangan segalanya, tapi tidak
   kehilangan kemanusiaannya.
-cover: https://1s4oyld5dc.ucarecd.net/7a138437-42df-4624-bb52-70590803bb46/
+cover: https://1s4oyld5dc.ucarecd.net/6fa72f48-b337-4a23-8375-8eabea83cc1c/
 kategori: Story
 tanggal: 2026-09-14
 ---
