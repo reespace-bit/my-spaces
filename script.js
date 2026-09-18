@@ -206,16 +206,6 @@ function shareHTML(article) {
           📋 Copy Link
         </button>
       </div>
-
-      <div class="like-section">
-        <form class="iine-form" action="https://iine.osc.garden/api/v1/vote" method="post">
-          <input type="hidden" name="url" value="${window.location.href}">
-          <button type="submit" class="iine-button">
-            ❤️ Suka artikel ini
-          </button>
-        </form>
-      </div>
-
       <div class="views-counter" id="views-counter"></div>
     </div>
   `;
