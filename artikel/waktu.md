@@ -1,7 +1,7 @@
 ---
 judul: Waktu
 ringkasan: Tentang masa kecil yang dulu terasa biasa saja...
-cover: https://1s4oyld5dc.ucarecd.net/38b17d3a-d91d-4351-bdf6-a201bbc60089/
+cover: https://1s4oyld5dc.ucarecd.net/060b1fcc-1024-47ec-b133-0267fc395964/
 kategori: Perspectives
 tanggal: 2026-09-15
 ---
