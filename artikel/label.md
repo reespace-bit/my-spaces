@@ -8,7 +8,7 @@ ringkasan: Sebelum membaca, izinkan saya menyampaikan beberapa hal.  Tulisan ini
   keinginan untuk belajar bersama.  Jika ada yang kurang tepat, saya mohon maaf.
   Jika tidak setuju, itu wajar. Jika tidak berkenan, silakan lewati saja. Terima
   kasih sudah mampir.
-cover: https://1s4oyld5dc.ucarecd.net/75667c16-5ab6-4482-9ece-d19ddd332277/
+cover: https://1s4oyld5dc.ucarecd.net/79e0242f-a786-47a1-bc7c-0d2bc8d6589b/
 kategori: Perspectives
 tanggal: 2026-09-16
 ---
