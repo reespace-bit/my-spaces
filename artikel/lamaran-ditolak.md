@@ -2,6 +2,7 @@
 judul: Lamaran Ditolak
 ringkasan: Ketika lamaran kerja ditolak, apa yang harus dilakukan? Dari sisi HR
   yang sering mengirim email penolakan.
+cover: https://1s4oyld5dc.ucarecd.net/d9e0e9bc-cea5-4146-93f8-669de886600b/
 kategori: HR & Career
 tanggal: 2026-09-18
 ---
