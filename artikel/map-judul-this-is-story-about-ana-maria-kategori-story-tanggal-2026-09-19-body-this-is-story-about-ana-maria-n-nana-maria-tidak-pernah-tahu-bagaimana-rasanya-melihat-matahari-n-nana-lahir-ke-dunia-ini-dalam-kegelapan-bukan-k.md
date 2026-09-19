@@ -1,6 +1,7 @@
 ---
 judul: This is Story About Ana Maria
 ringkasan: The first and the last part in her life.
+cover: https://1s4oyld5dc.ucarecd.net/b514bc43-e260-43d4-bfc0-43f26df0bceb/
 kategori: Story
 tanggal: 2026-09-19
 ---
@@ -272,4 +273,8 @@ Dan di dalam laporan resmi, mereka menulis:
 
 Tetapi di luar laporan resmi, di dalam hati Rei, ada sesuatu yang tidak bisa ia jelaskan. Hal itu membuatnya tidak bisa tidur. Rei selalu mambayangkan bagaimana selama ini Ana hidup. Bagaimana bisa ada tulisan di dinding?, bagaimana bisa ana mencari ibunya? Siapa yang dianggap "Ibu" bagi Ana?
 
-**THE END**
+**THE END**\
+\
+\
+\
+*\*This story is a remake of a work originally published on Wattpad by Reforeocream. All credit for the original concept belongs to them. This version is an independent reinterpretation.*
