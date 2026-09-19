@@ -2,6 +2,7 @@
 judul: Apa yang Sebenarnya HR Lihat Saat Interview?
 ringkasan: Interview bukan tentang jawaban benar. Ini tentang apakah kamu hadir
   sebagai dirimu sendiri.
+cover: https://1s4oyld5dc.ucarecd.net/8ca2db26-ca9b-483f-bf0e-9efc23181289/
 kategori: HR & Career
 tanggal: 2026-09-11
 ---
